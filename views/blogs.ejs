@@ -1,0 +1,39 @@
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <h1>Welcome to the home page</h1>
+    <h2>Here are all blogs</h2><hr>
+    <div id:"all-blogs">
+    <dl>
+        <% if (blogs.length>0){ let i=1%>
+            <% blogs.forEach(blog=>{ %>
+                <a href="/blogs/<%= blog._id %>" target:"_blank">
+                <dt><h3><span id="blog-count"><%= i %>.</span> <%= blog.title %></h3></li></a>
+                <dd><h4><%= blog.snippet %></h4></li>
+                <dd><p><%= blog.body %></p></li>
+                <% i++ %>
+                <hr>
+            <% }) %>
+            <a class="delete">Delete All</a>
+        <% } else { %>
+            <p>No blogs to show.</p>
+        <% }; %>
+
+    </dl>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+    <script>
+        const trashcan = document.querySelector("a.delete");
+        trashcan.addEventListener("click",(e)=>{
+            const endpoint = "/blogs/delete-all";
+            fetch(endpoint,{
+                method:"DELETE"
+            })
+            .then( response => response.json() )
+            .then(data=>window.location.href=data.redirect)
+            .catch(err=>console.log(err))
+        })
+    </script>
+</body>
+</html>

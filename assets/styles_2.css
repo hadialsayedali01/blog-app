@@ -1,0 +1,70 @@
+body {
+    color: white;
+    background-color: black;
+    font-family: verdana;
+}
+
+a {
+    color: white;
+}
+
+img {
+    width: 10%;
+    height: 10%;
+    margin: auto;
+}
+
+nav {
+    margin: auto;
+    float: right;
+}
+
+#all-blogs {
+    border: 2px solid white;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.delete {
+    color: red;
+}
+
+a:hover {
+    font-size: larger;
+}
+
+a.delete:hover {
+    font-weight: bold;
+}
+
+button {
+    font-family: verdana;
+}
+
+.blog-submitter {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-submitter input,
+.blog-submitter textarea,
+.blog-submitter button {
+    width: 30%;
+    margin-bottom: 20px;
+    margin-top: 7px;
+    font-family: verdana;
+}
+
+footer {
+    margin: auto;
+}
+
+h1 {
+    color: bisque;
+}
+
+#blog-count {
+    color: bisque;
+}
